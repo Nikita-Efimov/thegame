@@ -3,32 +3,39 @@
 <head>
 	<title>The Game</title>
 	<style type="text/css">
+	body {
+		background-image: url("http://zaker.ru/foo/15/treugolniki_abstrakciya_cveta_2560x1440.jpg");
+		width: 100%;
+		background-size: 100%;
+	}
+
 	table {
 		position: absolute;
 		left: 40%;
-		top: 20%;
+		top: 30%;
 		font-size: 20pt;
 		border-spacing: 0px 0px;
-		border-width: 1px;
-		border-style: solid;
-		border-color: black;
+		border-width: 0px;
 	}
 
 	td {
 		text-align: center;
 		vertical-align: center;
-		width: 55px;
-		height: 55px;
+		width: 60px;
+		height: 60px;
 		border-width: 1px;
 		border-style: solid;
 		border-color: black;
 		overflow: hidden;
-		transition: background-color 1s ease-in-out, color 0.8s ease-in-out,box-shadow 0.8s ease-out;
+		transition: background-color 1s ease-in-out, color 0.8s ease-in-out,
+		box-shadow 0.8s ease-out,opacity 1s ease-out;
 		background-color: #EEEEEE;
+		border-radius: 10px;
+		opacity: 0.9;
 	}
 
 	td:hover {
-		background-color: #000000;
+		background-color: #333333;
 		color: white;
 		box-shadow: 0px 0px 5px black;
 	}
