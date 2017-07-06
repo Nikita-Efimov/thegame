@@ -3,14 +3,22 @@ for(i = 0;i < 9;i++)
 	area.push(0);
 
 var ostanovaDot = 0;
-	
+
+function chgTdColor(td,BgColor,color) {
+	td.style.backgroundColor = BgColor;
+	td.style.color = color;
+}
+
 function set(pos,mark) {
 	if(area[pos] || ostanovaDot) 
 		return;
 
 	var a = document.getElementsByTagName("td");
-	if(mark == 1)
+	if(mark == 1) {
+		chgTdColor(a[pos],'#333333','white');
 		a[pos].innerHTML = 'X';
+		setTimeout(chgTdColor,600,a[pos],'#EEEEEE','black');
+	}
 	if(mark == 2)
 		a[pos].innerHTML = 'O';
 	area[pos] = mark;
