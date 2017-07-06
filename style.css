@@ -28,9 +28,9 @@ td {
 
 @media screen and (max-device-width: 480px) {
 	td {
-		font-size: 40pt;
-		width: 180px;
-		height: 180px;
+		font-size: 64pt;
+		width: 200px;
+		height: 200px;
   	}
 }
  
