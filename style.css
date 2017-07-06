@@ -1,7 +1,6 @@
 body {
 	text-align: center;
 	font-family: 'Comfortaa';
-	height: 2000px;
 }
 
 section {
@@ -14,6 +13,7 @@ table {
 }
 
 td {
+	position: relative;
 	font-weight: bold;
 	text-align: center;
 	vertical-align: center;
@@ -42,8 +42,15 @@ td {
 		height: 80px;
 		border-radius: 12px;
 	}
+
 	td:hover {
-		box-shadow: 0px 0px 30px black;
+		z-index: 10;
+		box-shadow: 0px 0px 32px black;
+	}
+
+	footer a:hover {
+		font-size: 16pt;
+		font-weight: bold;
 	}
 }
 
@@ -57,9 +64,4 @@ footer a {
 	transition: all 1s ease-in-out;
 	text-decoration: none;
 	color: black;
-}
-
-footer a:hover {
-	font-size: 16pt;
-	font-weight: bold;
 }

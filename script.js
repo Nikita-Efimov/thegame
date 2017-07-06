@@ -10,15 +10,17 @@ function chgTdColor(td,BgColor,color) {
 }
 
 function set(pos,mark) {
-	if(area[pos] || ostanovaDot) 
+	if(area[pos] || ostanovaDot || pos < 0 || pos > 8) 
 		return;
 
 	var a = document.getElementsByTagName("td");
+
 	if(mark == 1) {
 		chgTdColor(a[pos],'#333333','white');
 		a[pos].innerHTML = 'X';
 		setTimeout(chgTdColor,600,a[pos],'#EEEEEE','black');
 	}
+
 	if(mark == 2)
 		a[pos].innerHTML = 'O';
 	area[pos] = mark;
@@ -30,16 +32,6 @@ function set(pos,mark) {
 		checkArea(playerWin,1);
 		botAction();
 	}
-}
-
-function botAction() {
-	var pos;
-	while(1 && !ostanovaDot) {
-		pos = getRandomInt(0,8);
-		if(!area[pos])
-			break;
-	}
-	set(pos,2);
 }
 
 function clearArea() {
@@ -70,10 +62,6 @@ function playerDraw() {
 	ostanovaDot = 1;
 	setTimeout(alert,400,"Draw");
 	setTimeout(clearArea,440);
-}
-
-function getRandomInt(min, max) {
-	return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 function checkArea(action,num) {
