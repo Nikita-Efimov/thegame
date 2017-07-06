@@ -5,7 +5,7 @@ for(i = 0;i < 9;i++)
 var ostanovaDot = 0;
 	
 function set(pos,mark) {
-	if(area[pos]) 
+	if(area[pos] || ostanovaDot) 
 		return;
 
 	var a = document.getElementsByTagName("td");

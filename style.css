@@ -1,32 +1,45 @@
 body {
-	background-image: url("http://zaker.ru/foo/15/treugolniki_abstrakciya_cveta_2560x1440.jpg");
-	width: 100%;
-	background-size: 100%;
+	text-align: center;
+	font-family: 'Comfortaa';
+}
+
+section {
+	height: 260px;
 }
 
 table {
-	position: absolute;
-	left: 40%;
-	top: 30%;
-	font-size: 20pt;
-	border-spacing: 0px 0px;
+	border-spacing: 1px 1px;
 	border-width: 0px;
 }
 
 td {
+	font-weight: bold;
 	text-align: center;
 	vertical-align: center;
-	width: 60px;
-	height: 60px;
 	border-width: 1px;
 	border-style: solid;
 	border-color: black;
-	overflow: hidden;
-	transition: background-color 1s ease-in-out, color 0.8s ease-in-out,
-	box-shadow 0.8s ease-out,opacity 1s ease-out;
+	transition: background-color 800ms, width 1s, height 1s, color 0.8s ease-in-out,
+	box-shadow 0.8s ease-out, opacity 1s ease-out;
 	background-color: #EEEEEE;
 	border-radius: 10px;
 	opacity: 0.9;
+}
+
+@media screen and (max-device-width: 480px) {
+	td {
+		font-size: 40pt;
+		width: 180px;
+		height: 180px;
+  	}
+}
+ 
+@media screen and (min-device-width: 768px) {
+	td {
+		font-size: 24pt;
+    	width: 80px;
+		height: 80px;
+	}
 }
 
 td:hover {
