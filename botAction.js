@@ -2,7 +2,7 @@ var randSeed;
 
 getSeed();
 
-function botAction() {
+function mediumBotAction() {
 	var pos = botThinking();
 	
 	//если есть куда поставить путем лог. раздумий
@@ -11,6 +11,17 @@ function botAction() {
 		return;
 	}
 
+	//выбираем не занятую точку на рандом
+	while(1 && !ostanovaDot) {
+		pos = getRandomInt(0,8);
+		if(!area[pos])
+			break;
+	}
+
+	set(pos,2);
+}
+
+function easyBotAction() {
 	//выбираем не занятую точку на рандом
 	while(1 && !ostanovaDot) {
 		pos = getRandomInt(0,8);

@@ -7,12 +7,12 @@ section {
 	height: 260px;
 }
 
-table {
+section table {
 	border-spacing: 1px 1px;
 	border-width: 0px;
 }
 
-td {
+section td {
 	position: relative;
 	font-weight: bold;
 	text-align: center;
@@ -21,37 +21,59 @@ td {
 	border-style: solid;
 	border-color: black;
 	transition: background-color 800ms, width 1s, height 1s, color 0.8s ease-in-out,
-	box-shadow 0.8s ease-out, opacity 1s ease-out;
+	box-shadow 0.5s ease-in-out, opacity 1s ease-out;
 	background-color: #EEEEEE;
 	opacity: 0.9;
 }
 
 @media screen and (max-device-width: 480px) {
-	td {
-		font-size: 64pt;
-		width: 200px;
-		height: 200px;
+	section td {
+		font-size: 70pt;
+		width: 220px;
+		height: 220px;
 		border-radius: 30px;
   	}
+
+  	.but {
+		font-size: 20pt;
+	}
 }
  
 @media screen and (min-device-width: 768px) {
-	td {
-		font-size: 24pt;
-    	width: 80px;
-		height: 80px;
+	section td {
+		font-size: 30pt;
+    	width: 100px;
+		height: 100px;
 		border-radius: 12px;
 	}
 
-	td:hover {
+	section td:hover {
 		z-index: 10;
-		box-shadow: 0px 0px 32px black;
+		box-shadow: 0px 0px 30px black;
+		cursor: pointer;
 	}
 
 	footer a:hover {
 		font-size: 16pt;
 		font-weight: bold;
+		transition: all 3s ease-in-out;
+		cursor: pointer;
 	}
+
+	.but {
+		font-size: 12pt;
+	}
+
+	.but:hover {
+		transition: box-shadow 500ms;
+		box-shadow: 0px 0px 10px black;
+		cursor: pointer;
+	}
+}
+
+header div {
+	margin-top: 32px;
+	margin-bottom: 22px;
 }
 
 footer {
@@ -61,7 +83,17 @@ footer {
 }
 
 footer a {
-	transition: all 1s ease-in-out;
 	text-decoration: none;
 	color: black;
+}
+
+.but {
+	transition: background-color 1s,color 0.8s;
+	border-radius: 10px;
+	background-color: white;
+	border-color: black;
+	border-style: solid;
+	padding: 5px;
+	position: relative;
+	top: -11px;
 }
