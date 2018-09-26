@@ -41,9 +41,9 @@ section td {
  
 @media screen and (min-device-width: 768px) {
 	section td {
-		font-size: 30pt;
-    	width: 100px;
-		height: 100px;
+		font-size: 60pt;
+    	width: 140px;
+		height: 140px;
 		border-radius: 12px;
 	}
 
