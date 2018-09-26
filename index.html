@@ -3,7 +3,7 @@
 <head>
 	<title>The Game</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Comfortaa">
+	<!-- <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Comfortaa"> -->
 	<script type="text/javascript" src="script.js" defer></script>
 	<script type="text/javascript" src="botAction.js"></script>
 </head>
@@ -14,6 +14,21 @@
 			<span class="but" onclick="setMode(0)">player vs player</span>
 			<span class="but" onclick="setMode(1)">easy bot</span>
 			<span class="but" onclick="setMode(2)">medium bot</span>
+		</div>
+		<div id="stats" style="position: absolute; left: 10px; top: 0px;" >
+			<h2>Player Statistics:</h2>
+			<div id = "name">
+				<textarea rows=1 placeholder="Enter your name.." ></textarea>
+			</div>
+			<div>
+				<span>W: </span>
+				<span id="counter_of_wins"></span>
+				<span>D: </span>
+				<span id="counter_of_draws"></span>
+				<span>L: </span>
+				<span id="counter_of_loses"></span>
+			</div>
+			
 		</div>
 	</header>
 	<section>

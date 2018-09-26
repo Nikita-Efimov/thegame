@@ -106,7 +106,7 @@ function clearArea()
 		area[i] = 0;
 		a[i].innerHTML = '';
 	}
-	ostanovaDot = 0;
+	ostanovaDot = 0;	
 	strokeNum = 0;
 }
 
