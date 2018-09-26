@@ -20,7 +20,7 @@ section td {
 	border-width: 1px;
 	border-style: solid;
 	border-color: black;
-	transition: background-color 800ms, width 1s, height 1s, color 0.8s ease-in-out,
+	transition: background-color 300ms, width 1s, height 1s, color 600ms ease-in-out,
 	box-shadow 0.5s ease-in-out, opacity 1s ease-out;
 	background-color: #EEEEEE;
 	opacity: 0.9;

@@ -59,15 +59,15 @@ function set(pos, mark)
 		if(strokeNum % 2 == 1) 
 			mark = 2;
 
-		chgTdColor(a[pos],'#333333','white');
-		setTimeout(chgTdColor,600,a[pos],'#EEEEEE','black');
+		chgTdColor(a[pos], '#333333', 'white');
+		setTimeout(chgTdColor, 400, a[pos], '#EEEEEE', 'black');
 		
 		a[pos].innerHTML = mark == 1 ? 'X' : 'O';
 
 		area[pos] = mark;
 		
-		checkArea(2,"'O' win\nDo you wanna play new game?");
-		checkArea(1,"'X' win\nDo you wanna play new game?");
+		checkArea(2, "'O' win\nDo you wanna play new game?");
+		checkArea(1, "'X' win\nDo you wanna play new game?");
 
 		strokeNum++;
 	}
@@ -114,8 +114,8 @@ function newGameMassage(massage)
 {
 	if(ostanovaDot) return;
 	ostanovaDot = 1;
-	setTimeout(alert,400,massage);
-	setTimeout(clearArea,440);
+	setTimeout(alert, 400, massage);
+	setTimeout(clearArea, 440);
 }
 
 function checkArea(num, massage) 
