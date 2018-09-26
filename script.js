@@ -2,7 +2,7 @@ var area = [];
 for(i = 0;i < 9;i++)
 	area.push(0);
 
-//must be 'human','easy bot','medium bo'
+//must be 'human','easy bot','medium bot'
 var secondPlayer;
 
 var strokeNum = 0;
