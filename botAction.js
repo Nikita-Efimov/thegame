@@ -1,38 +1,38 @@
-var randSeed;
-
-getSeed();
-
-function mediumBotAction() {
+function mediumBotAction() 
+{
 	var pos = botThinking();
 	
 	//если есть куда поставить путем лог. раздумий
-	if(pos != -1) {
+	if(pos != -1) 
+	{
 		set(pos,2);
 		return;
 	}
 
 	//выбираем не занятую точку на рандом
-	while(1 && !ostanovaDot) {
+	while(1 && !ostanovaDot) 
+	{
 		pos = getRandomInt(0,8);
-		if(!area[pos])
-			break;
+		if(!area[pos]) break;
 	}
 
 	set(pos,2);
 }
 
-function easyBotAction() {
+function easyBotAction() 
+{
 	//выбираем не занятую точку на рандом
-	while(!ostanovaDot) {
+	while(!ostanovaDot) 
+	{
 		pos = getRandomInt(0,8);
-		if(!area[pos])
-			break;
+		if(!area[pos]) break;
 	}
 
 	set(pos,2);
 }
 
-function botThinking() {
+function botThinking() 
+{
 	var me = 2;
 	var player = 1;
 	var pos = -1;
@@ -65,7 +65,8 @@ function botThinking() {
 	return pos;
 }
 
-function botThinkingCheckPos(lastPos,pos1,pos2,pos3,mark) {
+function botThinkingCheckPos(lastPos, pos1, pos2, pos3, mark) 
+{
 	if(area[pos1] == mark && area[pos2] == mark && !area[pos3])
 		return pos3;
 	if(area[pos1] == mark && area[pos3] == mark && !area[pos2])
@@ -75,19 +76,7 @@ function botThinkingCheckPos(lastPos,pos1,pos2,pos3,mark) {
 	return lastPos;
 }
 
-function setSeed(num) {
-	randSeed = num;
-	localStorage.setItem('randSeed', num);
-	alert(num);
-}
-
-function getSeed() {
-	randSeed = localStorage.getItem('randSeed');
-	if (!randSeed) 
-		randSeed = 0;
-	return randSeed;
-}
-
-function getRandomInt(min, max) {
+function getRandomInt(min, max) 
+{
 	return Math.floor((Math.random()) * (max - min + 1)) + min;
 }
