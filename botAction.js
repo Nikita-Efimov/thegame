@@ -23,7 +23,7 @@ function mediumBotAction() {
 
 function easyBotAction() {
 	//выбираем не занятую точку на рандом
-	while(1 && !ostanovaDot) {
+	while(!ostanovaDot) {
 		pos = getRandomInt(0,8);
 		if(!area[pos])
 			break;
