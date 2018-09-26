@@ -28,6 +28,7 @@ function setMode(modeNum)
 		break;
 		case 2:
 			secondPlayer = "medium bot";
+		break;
 	}
 
 	var a = document.getElementsByTagName("span");
