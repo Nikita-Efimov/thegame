@@ -97,3 +97,17 @@ footer a {
 	position: relative;
 	top: -11px;
 }
+textarea {
+	resize: none;
+}
+
+#stats {
+	transition: background-color 1s,color 0.8s;
+	border-radius: 10px;
+	background-color: white;
+	border-color: black;
+	border-style: solid;
+	padding: 5px;
+	position: relative;
+	top: -11px;
+}
