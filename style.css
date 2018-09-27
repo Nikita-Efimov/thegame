@@ -102,12 +102,22 @@ textarea {
 }
 
 #stats {
-	transition: background-color 1s,color 0.8s;
-	border-radius: 10px;
+	text-align: left;
+	border-width: 2px; 
+	border-radius: 15px;
 	background-color: white;
 	border-color: black;
 	border-style: solid;
 	padding: 5px;
 	position: relative;
-	top: -11px;
+	margin-top: 140px; 
+	margin-left: 20px;
+}
+#wdl{
+	font-size:25px;
+	text-align: left;
+}
+#name {
+	overflow:hidden;
+	font-size: 30px;
 }
