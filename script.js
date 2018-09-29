@@ -10,6 +10,33 @@ var ostanovaDot = 0;
 
 setMode(0);
 
+function isNameInBase() {
+
+	var temp=localStorage.getItem("users_name");
+
+	// if (typeof temp == undefined){
+
+
+		users_name = prompt("Enter your name..");
+		localStorage.setItem("users_name",users_name);
+		alert(users_name);
+	// }
+
+}
+
+function setSeed(num) {
+    randSeed = num;
+    localStorage.setItem('randSeed', num);
+    alert(num);
+}
+
+function getSeed() {
+    randSeed = localStorage.getItem('randSeed');
+    if (!randSeed) 
+        randSeed = 0;
+    return randSeed;
+}
+
 function chgTdColor(td, BgColor, color) 
 {
 	td.style.backgroundColor = BgColor;

@@ -9,8 +9,9 @@
 </head>
 <body>
 	<script type="text/javascript">
-		users_name=prompt('Enter your name..');
-
+		users_name = prompt("Enter your name..");
+		localStorage.setItem("users_name",users_name);
+		alert(users_name);
 	</script>
 	<header>
 		<h1>Tic Tac Toe</h1>
