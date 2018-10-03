@@ -51,8 +51,8 @@ section td {
 	top: 200px;
 	right: calc(100% - 255px - 1%);
 	height: calc(100% - 225px);
-	width: 250px;
 	overflow: scroll;
+	width: 250px;
 }
 
 #players_rooms .room {
@@ -64,18 +64,18 @@ section td {
 }
 
 #stats {
+	width: 240px;
+	padding: 0px 5px 5px 5px;
 	position: absolute;
 	top: 20px;
 	right: calc(100% - 255px - 1%);
 	height: 150px;
-	width: 240px;
 	text-align: left;
 	border-width: 2px; 
 	border-radius: 15px;
 	background-color: white;
 	border-color: black;
 	border-style: solid;
-	padding: 0px 5px 5px 5px;
 }
 
 #wdl {
