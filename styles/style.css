@@ -41,20 +41,6 @@ section td {
 	top: -11px;
 }
 
-#players_rooms {
-	border-width: 2px; 
-	border-radius: 15px;
-	background-color: white;
-	border-color: black;
-	border-style: solid;
-	position: absolute;
-	top: 200px;
-	right: calc(100% - 255px - 1%);
-	height: calc(100% - 225px);
-	overflow: scroll;
-	width: 250px;
-}
-
 #players_rooms .room {
 	padding: 5px 0px 5px 0px;
 	font-size: 15pt;
@@ -63,13 +49,27 @@ section td {
 	cursor: pointer;
 }
 
-#stats {
-	width: 240px;
-	padding: 0px 5px 5px 5px;
+#players_rooms {
+	border-width: 2px; 
+	border-radius: 15px;
+	background-color: white;
+	border-color: black;
+	border-style: solid;
+	top: 220px;
+	height: calc(100% - 245px);
+}
+
+.left_column {
+	overflow: scroll;
 	position: absolute;
+	width: calc(80px + 10%);
+	right: calc(100% - 2% - 80px - 10%);
+	padding: 0px 5px 5px 5px;
+}
+
+#stats {
 	top: 20px;
-	right: calc(100% - 255px - 1%);
-	height: 150px;
+	height: 170px;
 	text-align: left;
 	border-width: 2px; 
 	border-radius: 15px;
