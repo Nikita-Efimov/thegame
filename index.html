@@ -2,42 +2,29 @@
 <html>
 <head>
 	<title>The Game</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="styles/style.css">
+	<link rel="stylesheet" type="text/css" href="styles/pc_style.css">
+	<link rel="stylesheet" type="text/css" href="styles/mobile_style.css">
 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Comfortaa">
-	<script type="text/javascript" src="script.js" defer></script>
-	<script type="text/javascript" src="botAction.js"></script>
+	<script type="text/javascript" src="scripts/script.js" defer></script>
+	<script type="text/javascript" src="scripts/interface.js" defer></script>
 </head>
 <body>
-	<script type="text/javascript">
-		users_name=prompt('Enter your name..');
-
-	</script>
-	<header>
-		<h1>Tic Tac Toe</h1>
-		<div>
-			<span class="but" onclick="setMode(0)">player vs player</span>
-			<span class="but" onclick="setMode(1)">easy bot</span>
-			<span class="but" onclick="setMode(2)">medium bot</span>
-		</div>
-		<div id="stats" style="position: absolute; left: 10px; top: 0px;" >
-			<h2>Player Statistics:</h2>
-			<div id="name">
-				<script type="text/javascript">
-				document.getElementById("name").innerHTML=users_name; 
-				</script>
-			</div>
-			<div id="wdl">
-				<span >W:</span>
-				<span id="counter_of_wins" style="padding-left: 20px"></span>
-				<span>D: </span>
-				<span id="counter_of_draws" style="padding-left: 20px"></span>
-				<span>L: </span>
-				<span id="counter_of_loses" style="padding-left: 20px"></span>
-			</div>
-			
-		</div>
-	</header>
+	<div id="stats">
+		<h2>Player Statistics:</h2>
+		<div id="name" style="margin-bottom: 15px;"></div>
+		<div id="wdl">
+			<span>W: </span>
+			<span id="counter_of_wins" style="padding-left: 20px;"></span>
+			<span>D: </span>
+			<span id="counter_of_draws" style="padding-left: 20px;"></span>
+			<span>L: </span>
+			<span id="counter_of_loses" style="padding-left: 20px;"></span>
+		</div>	
+	</div>
+	<div id="players_rooms"></div>
 	<section>
+		<h1>Tic Tac Toe</h1>
 		<table align="center">
 			<tr>
 				<td onclick="set(0,1)"></td>
@@ -56,6 +43,5 @@
 			</tr>
 		</table>
 	</section>
-	<footer></footer>
 </body>
 </html>	
