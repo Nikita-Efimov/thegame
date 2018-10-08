@@ -1,0 +1,12 @@
+@media screen and (max-device-width: 480px) {
+	section td {
+		font-size: 70pt;
+		width: 220px;
+		height: 220px;
+		border-radius: 30px;
+  	}
+
+  	.but {
+		font-size: 20pt;
+	}
+}

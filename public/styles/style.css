@@ -1,0 +1,89 @@
+h1 {
+	font-size: 24pt;
+}
+
+body {
+	text-align: center;
+	font-family: 'Comfortaa';
+}
+
+section {
+	height: 260px;
+}
+
+section table {
+	border-spacing: 1px 1px;
+	border-width: 0px;
+}
+
+section td {
+	position: relative;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: center;
+	border-width: 1px;
+	border-style: solid;
+	border-color: black;
+	transition: background-color 300ms, width 1s, height 1s, color 600ms ease-in-out,
+	box-shadow 0.5s ease-in-out, opacity 1s ease-out;
+	background-color: #EEEEEE;
+	opacity: 0.9;
+}
+
+.but {
+	transition: background-color 1s,color 0.8s;
+	border-radius: 10px;
+	background-color: white;
+	border-color: black;
+	border-style: solid;
+	padding: 5px;
+	position: relative;
+	top: -11px;
+}
+
+#players_rooms .room {
+	padding: 5px 0px 5px 0px;
+	font-size: 15pt;
+	border-bottom-style: solid;
+	border-width: 1px;
+	cursor: pointer;
+}
+
+#players_rooms {
+	border-width: 2px; 
+	border-radius: 15px;
+	background-color: white;
+	border-color: black;
+	border-style: solid;
+	top: 220px;
+	height: calc(100% - 245px);
+}
+
+.left_column {
+	overflow: scroll;
+	position: absolute;
+	width: calc(80px + 10%);
+	right: calc(100% - 2% - 80px - 10%);
+	padding: 0px 5px 5px 5px;
+}
+
+#stats {
+	top: 20px;
+	height: 170px;
+	text-align: left;
+	border-width: 2px; 
+	border-radius: 15px;
+	background-color: white;
+	border-color: black;
+	border-style: solid;
+}
+
+#wdl {
+	font-size: 25px;
+	text-align: left;
+}
+
+#name {
+	overflow: hidden;
+	font-size: 30px;
+}
