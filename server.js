@@ -27,10 +27,17 @@ class Game
 		this.queue = this.percent_probality(50);
 		this.player1_id;
 		this.player2_id;
+		this.timer = 0;
 	}
 
 	make_move(player_num, pos)
 	{
+		clearTimeout(this.timer);
+		this.timer = setTimeout( () =>
+		{
+			this.clear(0);
+		}, 30000);
+
 		if (this.queue != player_num) return;
 		if (this.board[pos] !== undefined) return;
 
@@ -71,17 +78,19 @@ class Game
 		return check;
 	}
 
-	clear()
+	clear(isqueue = 1)
 	{
 		for (var i = 0; i < 9; i++)
 			delete this.board[i];
-		this.queue = this.percent_probality(50);
+
+		if (isqueue)
+			this.queue = this.percent_probality(50);
 
 		setTimeout(() =>
 		{
 			users.sockets[this.player1_id].emit('clear_board');
 			users.sockets[this.player2_id].emit('clear_board');
-		}, 2000);
+		}, 1700);
 	}
 
 	check()
@@ -118,6 +127,7 @@ class Game
 
 	is_clear()
 	{
+		console.log("!!!");
 		for (var i = 0; i < 9; i++)
 			if (this.board[i] !== undefined)
 				return false;
@@ -181,8 +191,8 @@ io.on('connection', (socket) =>
 
 		if (room_num === 0 && games[users.rooms[user_id]].is_clear())
 		{
-			delete games[users.rooms[user_id]];
 			users.clear_room(users.rooms[user_id]);
+			delete games[users.rooms[user_id]];
 		}
 		
 		if (room_num !== 0)
@@ -192,8 +202,13 @@ io.on('connection', (socket) =>
 			if (user_id !== room_num)
 			{
 				games[room_num] = new Game;
+
 				games[room_num].player1_id = user_id;
 				games[room_num].player2_id = room_num;
+
+				// отправка имен юзеров юзерам!
+				users.sockets[user_id].emit('set_players_names', users.names[user_id], users.names[room_num]);
+				users.sockets[room_num].emit('set_players_names', users.names[room_num], users.names[user_id]);
 
 				users.rooms[room_num] = room_num;
 				users.sockets[room_num].emit('interface_clear_rooms');

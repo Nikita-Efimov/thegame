@@ -9,6 +9,12 @@ socket.on('alert', (msg) =>
 	console.info(msg)
 });
 
+socket.on('set_players_names', (name1, name2) =>
+{
+	document.getElementById('player_1_name').innerHTML = name1;
+	document.getElementById('player_2_name').innerHTML = name2;
+});
+
 socket.on('interface_add_room', (name, roomNum) =>
 {
 	var elem = document.createElement('div');
@@ -16,6 +22,14 @@ socket.on('interface_add_room', (name, roomNum) =>
 	elem.setAttribute('onclick', 'connectToRoom(' + roomNum + ')');
 	elem.innerHTML = name;
 	document.getElementById('players_rooms').appendChild(elem);
+
+	// very not optimal code!!!
+	try {
+		if (document.getElementsByClassName('room')[0].getAttribute('onclick')[14] != '0')
+			document.getElementById('players_names').style.display = 'none';
+		else 
+			document.getElementById('players_names').style.display = 'block';
+	} catch (e) {}
 });
 
 socket.on('clear_board', () =>
@@ -33,6 +47,7 @@ socket.on('update_wld', (w, l, d) =>
 socket.on('interface_clear_rooms', () =>
 {
 	document.getElementById('players_rooms').innerHTML = "";
+	clearArea();
 });
 
 socket.on('update_move', (player_num, pos) =>
@@ -42,7 +57,6 @@ socket.on('update_move', (player_num, pos) =>
 
 function connectToRoom(num)
 {
-	console.log("Connect to: " + num);
 	socket.emit('connect_room', num);
 }
 
