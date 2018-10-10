@@ -52,17 +52,17 @@ class Game
 		switch (check)
 		{
 			case 0:
-				console.log('player 1 win');
+				// console.log('player 1 win');
 				users.w[this.player1_id]++;
 				users.l[this.player2_id]++;
 			break;
 			case 1:
-				console.log('player 2 win');
+				// console.log('player 2 win');
 				users.w[this.player2_id]++;
 				users.l[this.player1_id]++;
 			break;
 			case 2:
-				console.log('draw');
+				// console.log('draw');
 				users.d[this.player1_id]++;
 				users.d[this.player2_id]++;
 			break;
@@ -127,7 +127,6 @@ class Game
 
 	is_clear()
 	{
-		console.log("!!!");
 		for (var i = 0; i < 9; i++)
 			if (this.board[i] !== undefined)
 				return false;
@@ -178,7 +177,7 @@ io.on('connection', (socket) =>
 		if (users.rooms[user_id] === 0)
 			return;
 
-		console.log("[" + user_id + "]->"  + "make move: " + pos);
+		// console.log("[" + user_id + "]->"  + "make move: " + pos);
 		var check = games[users.rooms[user_id]].make_move(users.room_queue[user_id], pos);
 	});
 
@@ -187,7 +186,7 @@ io.on('connection', (socket) =>
 		// чтобы юзер не мог зайти в свою руму
 		if (room_num === user_id) return;
 
-		console.log("[" + user_id + "]->" + "switched to room: " + room_num);
+		// console.log("[" + user_id + "]->" + "switched to room: " + room_num);
 
 		if (room_num === 0 && games[users.rooms[user_id]].is_clear())
 		{
@@ -215,14 +214,12 @@ io.on('connection', (socket) =>
 				users.sockets[room_num].emit('interface_add_room', 'Exit', 0);
 
 				users.room_queue[room_num] = user_id < room_num;
-				console.log("[" + room_num + "]->" + "pos in room: " +  users.room_queue[room_num]);
 			}
 
 			socket.emit('interface_clear_rooms');
 			socket.emit('interface_add_room', 'Exit', 0);
 
 			users.room_queue[user_id] = room_num < user_id;
-			console.log("[" + user_id + "]->" + "pos in room: " +  users.room_queue[user_id]);
 		}
 
 		users.update_rooms();
