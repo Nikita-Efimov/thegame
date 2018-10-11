@@ -4,11 +4,64 @@
 	<title>Donations</title>
 	<style type="text/css">
 		body {
-			text-align: center;
+			text-align: left;
+			font-size: 25px;
+			font-weight: bold;
+			background-color: black;
+			color: white;
+		}
+
+		#text {
+			margin-left: 15px;
 		}
 	</style>
+	<script type="text/javascript">
+		var userLang = navigator.language || navigator.userLanguage; 
+		console.log(userLang); // en-US en-GB ru-RU
+
+		window.onload = () =>
+		{
+			console.log('window loaded');
+
+			var p = document.getElementById('text');
+			var text = p.innerText;
+			p.innerText = "";
+
+			setTimeout(animate, 0, p, text, 0);
+		}
+
+		function animate(p, text, length)
+		{
+			if (length >= text.length) return;
+			p.innerText = text.substr(0, length);
+
+			setTimeout(animate, get_random_int(80, 140), p, text, length+1);
+		}
+
+		function get_random_int(min, max)
+		{
+			return Math.floor((Math.random()) * (max - min + 1)) + min;
+		}
+	</script>
 </head>
 <body>
-	Hello world
+	<div id="text">
+		You're such a fuckin' ho, I love it      <br>
+		You're such a fuckin' ho, I love it      <br>
+		You're such a fuckin' ho, I love it      <br>
+		Your boyfriend is a dork, McLovin<br>
+		I just pulled up in a Ghost<br>
+		Fucked that bitch up out in London<br>
+		Then I fucked up on her cousin<br>
+		Or her sister, I don't know nothin'<br>
+		And my niggas gettin' ignorant<br>
+		Like a lighter, bitch, we ignant<br>
+		All this water on my neck<br>
+		Look like I fell when I went fishin'<br>
+		So much diamonds on my bust down<br>
+		Ooh, fuck, what's the time?<br>
+		Me and Smokepurpp sippin' drank<br>
+		Ooh, fuck, she take lines<br>
+	</div>
 </body>
 </html>
