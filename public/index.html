@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>The Game</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="styles/style.css">
+	<link rel="stylesheet" type="text/css" href="styles/pc_style.css">
+	<link rel="stylesheet" type="text/css" href="styles/mobile_style.css">
+	<link rel="stylesheet" type="text/css" href="font/Comfortaa.css">
+	<script src="frameworks/socket.io-1.4.5.js"></script>
+	<script type="text/javascript" src="scripts/script.js" defer></script>
+	<script type="text/javascript" src="scripts/interface.js" defer></script>
+</head>
+<body>
+	<div id="stats" class="left_column">
+		<h2>Player Statistics:</h2>
+		<div id="name" style="margin-bottom: 15px;"></div>
+		<div id="wdl">
+			<span>W: </span>
+			<span id="counter_of_wins">0</span>
+			<span>D: </span>
+			<span id="counter_of_draws">0</span>
+			<span>L: </span>
+			<span id="counter_of_loses">0</span>
+		</div>	
+	</div>
+	<div id="players_rooms" class="left_column" onmousedown="return false" onselectstart="return false"></div>
+	<section>
+		<h1>Tic Tac Toe</h1>
+		<h2 style="margin-top: -20px; display: none" id="players_names">
+			<span id="player_1_name">Hello</span>
+			<span> vs </span>
+			<span id="player_2_name">World</span>
+		</h2>
+		<table onmousedown ="return false" onselectstart="return false" align="center">
+			<tr>
+				<td onclick="makeMove(0)"></td>
+				<td onclick="makeMove(1)"></td>
+				<td onclick="makeMove(2)"></td>		
+			</tr>
+			<tr>
+				<td onclick="makeMove(3)"></td>	
+				<td onclick="makeMove(4)"></td>
+				<td onclick="makeMove(5)"></td>		
+			</tr>
+			<tr>
+				<td onclick="makeMove(6)"></td>
+				<td onclick="makeMove(7)"></td>
+				<td onclick="makeMove(8)"></td>		
+			</tr>
+		</table>
+	</section>
+	<div id="footer" class="left_column" onmousedown ="return false" onselectstart="return false">
+		<a href="donates.html" target="_blank">
+			Donation and feedback
+		</a>
+	</div>
+</body>
+</html>
