@@ -24,18 +24,23 @@
 			console.log('window loaded');
 
 			var p = document.getElementById('text');
-			var text = p.innerText;
-			p.innerText = "";
+			var text = p.innerHTML;
+			p.innerHTML = "";
 
-			setTimeout(animate, 0, p, text, 0);
+			setTimeout(animate, 100, p, text, 0);
 		}
 
 		function animate(p, text, length)
 		{
 			if (length >= text.length) return;
-			p.innerText = text.substr(0, length);
 
-			setTimeout(animate, get_random_int(80, 140), p, text, length+1);
+			if (text[length] == '<')
+				while (text.length > length && text[length] != '>')
+					length++;
+
+			p.innerHTML = text.substr(0, length);
+
+			setTimeout(animate, get_random_int(80, 140)/2, p, text, length+1);
 		}
 
 		function get_random_int(min, max)
@@ -46,9 +51,9 @@
 </head>
 <body>
 	<div id="text">
-		You're such a fuckin' ho, I love it      <br>
-		You're such a fuckin' ho, I love it      <br>
-		You're such a fuckin' ho, I love it      <br>
+		You're such a fuckin' <span style="text-decoration: line-through">hole</span>, I love it      <br>
+		You're such a fuckin' <span style="text-decoration: line-through">hole</span>, I love it      <br>
+		You're such a fuckin' <span style="text-decoration: line-through">hole</span>, I love it      <br>
 		Your boyfriend is a dork, McLovin<br>
 		I just pulled up in a Ghost<br>
 		Fucked that bitch up out in London<br>
