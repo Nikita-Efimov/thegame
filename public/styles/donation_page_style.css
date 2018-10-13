@@ -6,18 +6,16 @@ body {
 	color: white;
 }
 
-#text {	
+#text {
 	margin-left: 15px;
+	width: 100%
 }
-#moneypic {
-	margin-top: 100px;
-	margin-right: 100px;
-	float: right;
-}
-#button {
-	margin-top:10px;
-	margin-left: 350px;
-	margin-right: 110px;
-	float: right;
 
+footer {
+	position: absolute;
+	bottom: 0px;
+}
+
+h2 {
+	text-align: center;
 }

@@ -1,6 +1,10 @@
 var socket = io();
 
-document.getElementById("name").innerHTML = "Nikita"; //prompt('Enter your name..');
+var name = /*"Nikita";*/ prompt('Enter your name..');
+
+document.getElementById("name").innerHTML = name;
+
+document.getElementById('footer').getElementsByTagName('a')[0].href = document.getElementById('footer').getElementsByTagName('a')[0].href + '?name=' + name;
 
 socket.emit('get_name', document.getElementById("name").innerHTML );
 

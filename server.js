@@ -50,19 +50,19 @@ class Game
 		var check = this.check();
 
 		switch (check)
-		{
+		{		
+				// player 1 win
 			case 0:
-				// console.log('player 1 win');
 				users.w[this.player1_id]++;
 				users.l[this.player2_id]++;
 			break;
+				// player 2 win
 			case 1:
-				// console.log('player 2 win');
 				users.w[this.player2_id]++;
 				users.l[this.player1_id]++;
 			break;
+				// draw
 			case 2:
-				// console.log('draw');
 				users.d[this.player1_id]++;
 				users.d[this.player2_id]++;
 			break;
@@ -142,7 +142,7 @@ class Game
 	{
 		var a = this.get_random_int(0, 100);
 	    
-	    if (a <= percent)
+	    if (a < percent)
 	        return 1;
 	    else
 	        return 0;
