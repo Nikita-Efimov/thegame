@@ -1,0 +1,23 @@
+body {
+	text-align: left;
+	font-size: 25px;
+	font-weight: bold;
+	background-color: black;
+	color: white;
+}
+
+footer {
+	position: absolute;
+	bottom: 75px;
+	left: calc(50% - 261px);
+	display: none;
+}
+
+h2 {
+	text-align: center;
+}
+
+#text {
+	margin-left: 15px;
+	width: 100%
+}
