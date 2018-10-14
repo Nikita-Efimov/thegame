@@ -6,16 +6,18 @@ body {
 	color: white;
 }
 
-#text {
-	margin-left: 15px;
-	width: 100%
-}
-
 footer {
 	position: absolute;
-	bottom: 0px;
+	bottom: 75px;
+	left: calc(50% - 261px);
+	display: none;
 }
 
 h2 {
 	text-align: center;
+}
+
+#text {
+	margin-left: 15px;
+	width: 100%
 }
