@@ -8,7 +8,7 @@ var io = require('socket.io').listen(server);
 var port = process.env.PORT || 3000;
 
 // Routing
-app.use(express.static(path.join(__dirname, 'public_html')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Setup
 server.listen(port, () => 
