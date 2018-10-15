@@ -52,6 +52,8 @@ section h2 {
 }
 
 #footer {
+	position: absolute;
+	top: 1675px;
 	font-size: 24pt;
 	height: 36px;
 	width: 90%;
