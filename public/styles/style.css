@@ -54,6 +54,15 @@ section td {
 	cursor: pointer;
 }
 
+/* хром, сафари */
+.left_column::-webkit-scrollbar { width: 0; }
+
+/* ie 10+ */
+.left_column { -ms-overflow-style: none; }
+
+/* фф (свойство больше не работает, других способов тоже нет)*/
+.left_column { overflow: -moz-scrollbars-none; }
+
 .left_column {
 	overflow: scroll;
 	position: absolute;
