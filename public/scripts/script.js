@@ -1,6 +1,6 @@
 var socket = io();
 
-var name = /*"Nikita";*/ prompt('Enter your name..');
+var name = /*"Nikita";*/ prompt('Enter your name... (in eng pls)');
 
 document.getElementById("name").innerHTML = name;
 
