@@ -7,6 +7,8 @@ var server = http.createServer(app);
 var io = require('socket.io').listen(server);
 var port = process.env.PORT || 3000;
 
+
+
 // Routing
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -88,6 +90,7 @@ class Game
 
 		setTimeout(() =>
 		{
+			if (users.users[this.player1_id] === undefined || users.users[this.player2_id] === undefined) return;
 			users.sockets[this.player1_id].emit('clear_board');
 			users.sockets[this.player2_id].emit('clear_board');
 		}, 1700);
