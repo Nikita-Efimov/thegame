@@ -56,6 +56,7 @@ section td {
 
 .left_column {
 	overflow: scroll;
+	overflow-x: hidden;
 	position: absolute;
 	width: calc(80px + 10%);
 	left: 1%;
