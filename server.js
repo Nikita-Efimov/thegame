@@ -174,7 +174,7 @@ io.on('connection', (socket) =>
 
 	socket.on('get_name', (name) => 
 	{
-		console.log("[" + user_id + "]->" + "with name: " + name);
+		console.log("[" + user_id + "]->" + "set name: " + name);
 		users.names[user_id] = name;
 		users.update_rooms();
 	});
