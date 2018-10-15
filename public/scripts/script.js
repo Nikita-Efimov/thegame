@@ -6,7 +6,7 @@ document.getElementById("name").innerHTML = name;
 
 document.getElementById('footer').getElementsByTagName('a')[0].href = document.getElementById('footer').getElementsByTagName('a')[0].href + '?name=' + name;
 
-socket.emit('get_name', document.getElementById("name").innerHTML );
+socket.emit('get_name', document.getElementById("name").innerHTML);
 
 socket.on('alert', (msg) => 
 {	

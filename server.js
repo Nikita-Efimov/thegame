@@ -38,7 +38,7 @@ class Game
 		this.timer = setTimeout( () =>
 		{
 			this.clear(0);
-		}, 30000);
+		}, 40000);
 
 		if (this.queue != player_num) return;
 		if (this.board[pos] !== undefined) return;
@@ -55,16 +55,19 @@ class Game
 		{		
 				// player 1 win
 			case 0:
+				console.log("[" + this.player1_id + "]->" + "win: " + this.player2_id);
 				users.w[this.player1_id]++;
 				users.l[this.player2_id]++;
 			break;
 				// player 2 win
 			case 1:
+				console.log("[" + this.player2_id + "]->" + "win: " + this.player1_id);
 				users.w[this.player2_id]++;
 				users.l[this.player1_id]++;
 			break;
 				// draw
 			case 2:
+				console.log("[" + this.player1_id + "]->" + "draw: " + this.player2_id);
 				users.d[this.player1_id]++;
 				users.d[this.player2_id]++;
 			break;
@@ -171,6 +174,7 @@ io.on('connection', (socket) =>
 
 	socket.on('get_name', (name) => 
 	{
+		console.log("[" + user_id + "]->" + "with name: " + name);
 		users.names[user_id] = name;
 		users.update_rooms();
 	});
