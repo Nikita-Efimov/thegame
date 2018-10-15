@@ -38,7 +38,7 @@ class Game
 		this.timer = setTimeout( () =>
 		{
 			this.clear(0);
-		}, 40000);
+		}, 45000);
 
 		if (this.queue != player_num) return;
 		if (this.board[pos] !== undefined) return;
