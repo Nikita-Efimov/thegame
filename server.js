@@ -213,8 +213,10 @@ io.on('connection', (socket) =>
 				games[room_num].player2_id = room_num;
 
 				// отправка имен юзеров юзерам!
-				users.sockets[user_id].emit('set_players_names', users.names[user_id], users.names[room_num]);
-				users.sockets[room_num].emit('set_players_names', users.names[room_num], users.names[user_id]);
+				if (users.sockets[user_id] !== undefined)
+					users.sockets[user_id].emit('set_players_names', users.names[user_id], users.names[room_num]);
+				if (users.sockets[room_num] !== undefined)
+					users.sockets[room_num].emit('set_players_names', users.names[room_num], users.names[user_id]);
 
 				users.rooms[room_num] = room_num;
 				users.sockets[room_num].emit('interface_clear_rooms');
