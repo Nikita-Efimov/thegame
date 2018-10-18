@@ -38,7 +38,7 @@ class Game
 		this.timer = setTimeout( () =>
 		{
 			this.clear(0);
-		}, 45000);
+		}, 50000);
 
 		if (this.queue != player_num) return;
 		if (this.board[pos] !== undefined) return;
@@ -90,6 +90,8 @@ class Game
 
 		if (isqueue)
 			this.queue = this.percent_probality(50);
+		else
+			this.queue = this.queue === 1 ? 0 : 1;
 
 		setTimeout(() =>
 		{
