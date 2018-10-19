@@ -64,16 +64,16 @@ module.exports = class Users
 		{
 			if (this.rooms[i] === 0)
 			{
-				this.sockets[i].emit('interface_clear_rooms');
+				if (this.sockets[i] !== undefined) this.sockets[i].emit('interface_clear_rooms');
 
 				this.users.forEach( (item, j) => 
 				{
 					if (this.rooms[j] === 0 && this.names[j] !== undefined)
 					{
 						if (i == j)
-							this.sockets[i].emit('interface_add_room', this.names[j] + ' (you)', j);
+							if (this.sockets[i] !== undefined) this.sockets[i].emit('interface_add_room', this.names[j] + ' (you)', j);
 						else
-							this.sockets[i].emit('interface_add_room', this.names[j], j);
+							if (this.sockets[i] !== undefined) this.sockets[i].emit('interface_add_room', this.names[j], j);
 					}
 				});
 			}

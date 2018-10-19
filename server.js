@@ -159,6 +159,14 @@ class Game
 
 var games = [];
 
+// var bot_id = 1;
+// users.users[bot_id] = 1;
+// users.rooms[bot_id] = 0;
+// users.w[bot_id] = 0;
+// users.l[bot_id] = 0;
+// users.d[bot_id] = 0;
+// users.names[bot_id] = 'Bot';
+
 io.on('connection', (socket) => 
 {
 	var user_id = users.find_free_id();
