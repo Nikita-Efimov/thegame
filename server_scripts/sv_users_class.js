@@ -55,7 +55,8 @@ module.exports = class Users
 
 	update_wld(pos)
 	{
-		this.sockets[pos].emit('update_wld', this.w[pos], this.l[pos], this.d[pos]);
+		if (this.sockets[pos] !== undefined)
+			this.sockets[pos].emit('update_wld', this.w[pos], this.l[pos], this.d[pos]);
 	}
 
 	update_rooms()
@@ -64,18 +65,21 @@ module.exports = class Users
 		{
 			if (this.rooms[i] === 0)
 			{
-				if (this.sockets[i] !== undefined) this.sockets[i].emit('interface_clear_rooms');
-
-				this.users.forEach( (item, j) => 
+				if (this.sockets[i] !== undefined) 
 				{
-					if (this.rooms[j] === 0 && this.names[j] !== undefined)
+					this.sockets[i].emit('interface_clear_rooms');
+					this.users.forEach( (item, j) => 
 					{
-						if (i == j)
-							if (this.sockets[i] !== undefined) this.sockets[i].emit('interface_add_room', this.names[j] + ' (you)', j);
-						else
-							if (this.sockets[i] !== undefined) this.sockets[i].emit('interface_add_room', this.names[j], j);
-					}
-				});
+						if (this.rooms[j] === 0 && this.names[j] !== undefined)
+						{
+							// console.log(this.names[j]);
+							if (i == j)
+								this.sockets[i].emit('interface_add_room', this.names[j] + ' (you)', j);
+							else
+								this.sockets[i].emit('interface_add_room', this.names[j], j);
+						}
+					});
+				}
 			}
 		});
 	}

@@ -40,14 +40,16 @@ class Game
 			this.clear(0);
 		}, 50000);
 
-		if (this.queue != player_num) return;
-		if (this.board[pos] !== undefined) return;
+		if (this.queue != player_num) return -2;
+		if (this.board[pos] !== undefined) return -3;
 
 		this.board[pos] = player_num;
 		this.queue = !this.queue;
 
-		users.sockets[this.player1_id].emit('update_move', player_num, pos);
-		users.sockets[this.player2_id].emit('update_move', player_num, pos);
+		if (users.sockets[this.player1_id] !== undefined) 
+			users.sockets[this.player1_id].emit('update_move', player_num, pos);
+		if (users.sockets[this.player2_id] !== undefined)
+			users.sockets[this.player2_id].emit('update_move', player_num, pos);
 
 		var check = this.check();
 
@@ -95,10 +97,13 @@ class Game
 
 		setTimeout(() =>
 		{
-			if (users.users[this.player1_id] === undefined || users.users[this.player2_id] === undefined) return;
-			users.sockets[this.player1_id].emit('clear_board');
-			users.sockets[this.player2_id].emit('clear_board');
-		}, 1700);
+			for (var i = 0; i < 9; i++)
+				delete this.board[i];
+			if (users.sockets[this.player1_id] !== undefined)
+				users.sockets[this.player1_id].emit('clear_board');
+			if (users.sockets[this.player2_id] !== undefined)
+				users.sockets[this.player2_id].emit('clear_board');
+		}, 2000);
 	}
 
 	check()
@@ -159,13 +164,44 @@ class Game
 
 var games = [];
 
-// var bot_id = 1;
-// users.users[bot_id] = 1;
-// users.rooms[bot_id] = 0;
-// users.w[bot_id] = 0;
-// users.l[bot_id] = 0;
-// users.d[bot_id] = 0;
-// users.names[bot_id] = 'Bot';
+class Bot 
+{
+	constructor(name)
+	{
+		this.id = users.find_free_id();
+
+		users.names[this.id] = name;
+		users.users[this.id] = 1;
+		users.rooms[this.id] = 0;
+		users.w[this.id] = 0;
+		users.l[this.id] = 0;
+		users.d[this.id] = 0;
+
+		setInterval( () =>
+		{
+			if (users.rooms[this.id] !== 0)
+				this.do();
+		}, 2000)
+	}
+
+	get_random_int(min, max)
+	{
+		return Math.floor((Math.random()) * (max - min + 1)) + min;
+	}
+}
+
+class Easy_bot extends Bot
+{
+	do()
+	{
+		do 
+		{
+			var check = games[users.rooms[this.id]].make_move(users.room_queue[this.id], this.get_random_int(0, 8));
+		} while (check === -3 && check !== 0 && check !== 1 && check !== 2)
+	}
+}
+
+var easy_bot = new Easy_bot('Bot')
 
 io.on('connection', (socket) => 
 {
@@ -229,8 +265,11 @@ io.on('connection', (socket) =>
 					users.sockets[room_num].emit('set_players_names', users.names[room_num], users.names[user_id]);
 
 				users.rooms[room_num] = room_num;
-				users.sockets[room_num].emit('interface_clear_rooms');
-				users.sockets[room_num].emit('interface_add_room', 'Exit', 0);
+				if (users.sockets[room_num] !== undefined)
+				{
+					users.sockets[room_num].emit('interface_clear_rooms');
+					users.sockets[room_num].emit('interface_add_room', 'Exit', 0);
+				}
 
 				users.room_queue[room_num] = user_id < room_num;
 			}
